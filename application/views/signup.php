@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- <script src="<?php echo base_url() ?>assets/jquery.loading.js"></script>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/jquery.loading.css"> -->
+    <!-- Custom CSS -->
     <style type="text/css">
 		body {
 			font-family: 'Roboto', sans-serif;
@@ -60,7 +61,7 @@
 							<br>
 								<input type="text" id="username" name="username" class="form-control">
 							<br>	
-                            <!-- validation message for username availability -->
+                            <!-- validation message for username checking with database -->
                             <?php echo validation_errors('<div style="color: #a94442;font-weight: bold;font-size: 16px;"><p>','</p></div>'); ?>	            	
 		            	</div>
 		            	<div class="form-group">
@@ -89,12 +90,13 @@
         </div> 
         <div class="col-lg-4"></div>    
     </div>
-    <!-- Bootstrap JS file -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <!-- validation plugin configuration -->
     <script type="text/javascript">
+        // wait untill the page is loaded completely
     	$(document).ready(function(){
+		// include the validation for the form function comes with this plugin
     		$('#signup-form').validate({
+			// set validation rules for input fields
     			rules: {
     				username: {
     					required : true,
@@ -113,6 +115,7 @@
     					equalTo: "#password"
     				}
     			},
+			// set validation messages for the rules are set previously
     			messages: {
     				username: {
     					required : "Username is required",
@@ -133,12 +136,12 @@
     			}
     		});
 
-            // $("form").submit(function(){
-            //     $('body').loading({
-            //       stoppable: true
-            //     })
-            // });
     	});
     </script>
+    <!-- Bootstrap JS file -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>     
+    <!-- Validation JS file -->     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    
 </body>
 </html>
